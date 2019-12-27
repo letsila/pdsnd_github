@@ -52,6 +52,7 @@ def load_data(city, month, day):
     """
     df = pd.read_csv(CITY_DATA[city])
 
+    # convert the start time to date time
     convert_to_datetime(df, 'Start Time')
 
     df['month'] = df['Start Time'].dt.month
