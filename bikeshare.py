@@ -55,6 +55,7 @@ def load_data(city, month, day):
     # convert the start time to date time
     convert_to_datetime(df, 'Start Time')
 
+    # extract month, day of week and hour into their respective column
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     df['hour'] = df['Start Time'].dt.hour
@@ -191,6 +192,8 @@ def display_data(df):
 
 
 def main():
+
+    # infinite loop in order to make our cli app interactive 
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
